@@ -1,6 +1,6 @@
 "use client";
 
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -35,11 +35,16 @@ const skillColors : {
 };
 
 const gridColor = "rgba(80, 80, 80, 0.5)";
-const options = {
+let options: any = {
   borderColor: "rgba(0, 0, 0, 0.5)",
   plugins: {
     legend: {
       display: false
+    }, title: {
+      display: true,
+      font: {
+        size: 20
+      }
     }
   },
   scales: {
@@ -60,10 +65,12 @@ const options = {
 
 interface LevelChartParams {
   skills: Record<string, number>;
+  title: string;
 }
 
-export default function SkillChart({ skills } : LevelChartParams) {
+export default function SkillChart({ skills, title } : LevelChartParams) {
   const skillLabels = Object.keys(skills);
+
   const data = {
     labels: skillLabels,
     datasets: [
@@ -74,6 +81,9 @@ export default function SkillChart({ skills } : LevelChartParams) {
       }
     ]
   };
+
+  // Add the dynamic title to the chart options
+  options.plugins.title.text = title;
 
   return (
     <Bar data={data} options={options} />

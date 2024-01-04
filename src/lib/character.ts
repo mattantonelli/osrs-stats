@@ -22,6 +22,14 @@ export class Character {
   }
 }
 
+export function defaultSkillLevels() : Record<string, number> {
+  return {
+    attack: 1, strength: 1, defence: 1, ranged: 1, prayer: 1, magic: 1, runecraft: 1, construction: 1,
+    hitpoints: 10, agility: 1, herblore: 1, thieving: 1, crafting: 1, fletching: 1, slayer: 1, hunter: 1,
+    mining: 1, smithing: 1, fishing: 1, cooking: 1, firemaking: 1, woodcutting: 1, farming: 1
+  };
+}
+
 export async function getCharacter(username: string) : Promise<Character | null> {
   // Read the character data from a local JSON file
   const path = `${process.cwd()}/vendor/${username}.json`;
@@ -49,21 +57,11 @@ export async function getCharacter(username: string) : Promise<Character | null>
     });
   });
 
-  let levels: Record<string, number> = {
-    attack: 1, strength: 1, defence: 1, ranged: 1, prayer: 1, magic: 1, runecraft: 1, construction: 1,
-    hitpoints: 10, agility: 1, herblore: 1, thieving: 1, crafting: 1, fletching: 1, slayer: 1, hunter: 1,
-    mining: 1, smithing: 1, fishing: 1, cooking: 1, firemaking: 1, woodcutting: 1, farming: 1
-  };
+  let levels = defaultSkillLevels();
 
   // Iterate over the history of level-ups and track the highest level for each skill
   for(const levelUp of history) {
-    const skill = levelUp.skill;
-    const currentLevel = levels[skill];
-    const newLevel = levelUp.level;
-
-    if (newLevel > currentLevel) {
-      levels[skill] = newLevel;
-    }
+    levels[levelUp.skill] = levelUp.level;
   }
 
   return new Character(username, history, levels);
