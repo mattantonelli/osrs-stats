@@ -1,4 +1,4 @@
-import LevelChart from "@/app/components/levelChart";
+import SkillChart from "@/app/components/skillChart";
 import { getCharacter } from "@/lib/character";
 
 interface CharacterParams {
@@ -18,7 +18,7 @@ export default async function Character({ params } : CharacterParams) {
             Last Updated: {character.updatedAt.toLocaleDateString()}
           </small>
           <div className="mt-4">
-            <LevelChart levels={character.levels} />
+            <SkillChart skills={character.levels} />
           </div>
         </div>
       </div>
