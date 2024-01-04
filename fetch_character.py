@@ -47,5 +47,7 @@ for filename in os.listdir(screenshot_path):
 levels = sorted(levels, key=lambda level: level['datetime'])
 
 # Write the output to a file as JSON
-with open(f'vendor/{character}.json', 'w') as output:
+output_directory = 'vendor' if os.path.isdir('vendor') else '.'
+
+with open(f'{output_directory}/{character}.json', 'w') as output:
     json.dump(levels, output, indent=2)
