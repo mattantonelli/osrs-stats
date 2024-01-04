@@ -66,8 +66,5 @@ export async function getCharacter(username: string) : Promise<Character | null>
     }
   }
 
-  // Remove Combat since it's a meta level
-  delete levels["combat"];
-
   return new Character(username, history, levels);
 }

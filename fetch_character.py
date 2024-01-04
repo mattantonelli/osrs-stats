@@ -33,13 +33,16 @@ for filename in os.listdir(screenshot_path):
     match = re.match(LEVEL_REGEX, filename)
 
     if match:
-        levels.append(
-            {
-                'skill': match.group(1).capitalize(),
-                'level': int(match.group(2)),
-                'datetime': datetime.datetime.strptime(match.group(3), '%Y-%m-%d_%H-%M-%S').isoformat()
-            }
-        )
+        skill = match.group(1).capitalize()
+
+        if skill != 'Combat':
+            levels.append(
+                {
+                    'skill': match.group(1).capitalize(),
+                    'level': int(match.group(2)),
+                    'datetime': datetime.datetime.strptime(match.group(3), '%Y-%m-%d_%H-%M-%S').isoformat()
+                }
+            )
     else:
         print(f'Could not parse: {filename}')
 
