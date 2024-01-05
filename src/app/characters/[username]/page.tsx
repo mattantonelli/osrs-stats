@@ -8,7 +8,11 @@ interface CharacterParams {
 export default async function Character({ params } : CharacterParams) {
   const character = await getCharacter(decodeURI(params.username));
 
-  if (character !== null) {
+  if (character === null) {
+    return (
+      <h5 className="text-center">Character not found.</h5>
+    );
+  } else {
     return (
       <div className="row">
         <div className="col-12">
