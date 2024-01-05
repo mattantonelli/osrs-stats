@@ -2,7 +2,8 @@
 
 import SkillChart from "@/app/components/skillChart";
 import { LevelUp } from "@/lib/character";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 
 interface CharacterHistoryParams {
   defaultSkills: Record<string, number>;
@@ -11,32 +12,77 @@ interface CharacterHistoryParams {
 
 export default function CharacterHistory( { defaultSkills, history } : CharacterHistoryParams) {
   const [delayMs, _setDelayMs] = useState(10);
-  const [skills, setSkills] = useState(defaultSkills);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [skills, setSkills] = useState({...defaultSkills});
+  const [step, setStep] = useState(0);
+  const [debouncedStep] = useDebounce(step, 10);
   const [title, setTitle] = useState("");
-  const step = useRef(-1);
 
+  // Animate the chart if play is enabled
   useEffect(() => {
-    if (step.current < history.length - 1) {
-      const interval = setInterval(() => {
-        step.current = step.current + 1;
+    if (isPlaying) {
+      if (step < history.length - 1) {
+        setTimeout(() => {
+          // Apply the level up data for the current point in history
+          let newSkills = {...skills};
+          const levelUp = history[step];
+          newSkills[levelUp.skill] = levelUp.level;
+          setSkills(newSkills);
+          setTitle(levelUp.datetime.toLocaleDateString());
 
-        let newSkills = {...skills};
-        const levelUp = history[step.current];
-        newSkills[levelUp.skill] = levelUp.level;
-
-        setSkills(newSkills);
-        setTitle(levelUp.datetime.toLocaleDateString());
-
-        if(step.current >= history.length) {
-          clearInterval(interval);
-        }
-      }, delayMs);
-
-      return () => clearInterval(interval);
+          // Increment the step for the next render, which will be triggered after a delay since
+          // since we updated the skills.
+          setStep(step + 1);
+        }, delayMs);
+      } else {
+        // If we have reached the end of the history, stop the animation
+        setIsPlaying(false);
+      }
     }
-  });
+  }, [delayMs, history, isPlaying, skills, step]);
+
+  // Display the current snapshot in history if play is disabled
+  useEffect(() => {
+    if (!isPlaying) {
+      let newSkills = {...defaultSkills};
+      let date!: Date;
+
+      // Iterate over history up to the current step to build the skills
+      for (const levelUp of history.slice(0, debouncedStep + 1)) {
+        newSkills[levelUp.skill] = levelUp.level;
+        date = levelUp.datetime;
+      }
+
+      setSkills(newSkills);
+      setTitle(date?.toLocaleDateString());
+    }
+  }, [defaultSkills, history, isPlaying, debouncedStep]);
+
+  function setManualStep(newStep: number) {
+    setIsPlaying(false);
+    setStep(newStep);
+  }
+
+  function togglePlay() {
+    // If we hit play at the end of the animation, start from the beginning
+    if (!isPlaying && step == history.length - 1) {
+      setSkills({...defaultSkills});
+      setStep(0);
+    }
+
+    setIsPlaying(!isPlaying);
+  }
 
   return (
-    <SkillChart skills={skills} title={title} />
+    <div className="d-flex flex-column">
+      <SkillChart skills={skills} title={title} />
+      <input type="range" className="form-range" min="0" max={history.length - 1}
+        value={step} onChange={(e) => setManualStep(parseInt(e.target.value))} />
+      <div className="d-flex justify-content-center">
+        <button type="button" className={`btn btn-${isPlaying ? "primary" : "success"}`} onClick={() => togglePlay()}>
+          {isPlaying ? "Pause" : "Play"}
+        </button>
+      </div>
+    </div>
   );
 }
