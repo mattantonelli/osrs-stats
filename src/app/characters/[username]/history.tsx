@@ -21,7 +21,7 @@ export default function CharacterHistory( { defaultSkills, history } : Character
   // Animate the chart if play is enabled
   useEffect(() => {
     if (isPlaying) {
-      if (step < history.length - 1) {
+      if (step < history.length) {
         setTimeout(() => {
           // Apply the level up data for the current point in history
           let newSkills = {...skills};
@@ -48,7 +48,7 @@ export default function CharacterHistory( { defaultSkills, history } : Character
       let date!: Date;
 
       // Iterate over history up to the current step to build the skills
-      for (const levelUp of history.slice(0, debouncedStep + 1)) {
+      for (const levelUp of history.slice(0, debouncedStep)) {
         newSkills[levelUp.skill] = levelUp.level;
         date = levelUp.datetime;
       }
@@ -76,7 +76,7 @@ export default function CharacterHistory( { defaultSkills, history } : Character
   return (
     <div className="d-flex flex-column">
       <SkillChart skills={skills} title={title} />
-      <input type="range" className="form-range" min="0" max={history.length - 1}
+      <input type="range" className="form-range" min="0" max={history.length}
         value={step} onChange={(e) => setManualStep(parseInt(e.target.value))} />
       <div className="d-flex justify-content-center">
         <button type="button" className={`btn btn-${isPlaying ? "primary" : "success"}`} onClick={() => togglePlay()}>
