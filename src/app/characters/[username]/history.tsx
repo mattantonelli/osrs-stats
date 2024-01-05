@@ -11,7 +11,7 @@ interface CharacterHistoryParams {
 }
 
 export default function CharacterHistory( { defaultSkills, history } : CharacterHistoryParams) {
-  const [delayMs, _setDelayMs] = useState(10);
+  const [speed, setSpeed] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [skills, setSkills] = useState({...defaultSkills});
   const [step, setStep] = useState(0);
@@ -33,13 +33,13 @@ export default function CharacterHistory( { defaultSkills, history } : Character
           // Increment the step for the next render, which will be triggered after a delay since
           // since we updated the skills.
           setStep(step + 1);
-        }, delayMs);
+        }, 50 / speed);
       } else {
         // If we have reached the end of the history, stop the animation
         setIsPlaying(false);
       }
     }
-  }, [delayMs, history, isPlaying, skills, step]);
+  }, [speed, history, isPlaying, skills, step]);
 
   // Display the current snapshot in history if play is disabled
   useEffect(() => {
@@ -82,6 +82,11 @@ export default function CharacterHistory( { defaultSkills, history } : Character
         <button type="button" className={`btn btn-${isPlaying ? "primary" : "success"}`} onClick={() => togglePlay()}>
           {isPlaying ? "Pause" : "Play"}
         </button>
+        <div className="input-group input-group-speed ms-2">
+          <input type="number" className="form-control" value={speed} min="1" max="10"
+            onChange={(e) => setSpeed(parseInt(e.target.value))} />
+          <span className="input-group-text">x</span>
+        </div>
       </div>
     </div>
   );
