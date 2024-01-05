@@ -34,35 +34,6 @@ const skillColors : {
   farming: "rgb(101, 152, 63)"
 };
 
-const gridColor = "rgba(80, 80, 80, 0.5)";
-let options: any = {
-  borderColor: "rgba(0, 0, 0, 0.5)",
-  plugins: {
-    legend: {
-      display: false
-    }, title: {
-      display: true,
-      font: {
-        size: 20
-      }
-    }
-  },
-  scales: {
-    x: {
-      grid: {
-        color: gridColor
-      }
-    },
-    y: {
-      min: 0,
-      max: 99,
-      grid: {
-        color: gridColor
-      }
-    }
-  }
-};
-
 interface LevelChartParams {
   skills: Record<string, number>;
   title: string;
@@ -70,20 +41,52 @@ interface LevelChartParams {
 
 export default function SkillChart({ skills, title } : LevelChartParams) {
   const skillLabels = Object.keys(skills);
+  const skillValues = Object.values(skills);
 
+  // Compile the chart data
   const data = {
     labels: skillLabels,
     datasets: [
       {
         label: undefined,
-        data: Object.values(skills),
+        data: skillValues,
         backgroundColor: skillLabels.map(skill => skillColors[skill])
       }
     ]
   };
 
-  // Add the dynamic title to the chart options
-  options.plugins.title.text = title;
+  // Set the display options
+  const options = {
+    borderColor: "rgba(0, 0, 0, 0.5)",
+    plugins: {
+      legend: {
+        display: false
+      }, title: {
+        display: true,
+        font: {
+          size: 20
+        },
+        text: title
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          color: "rgba(80, 80, 80, 0.5)"
+        }
+      },
+      y: {
+        min: 0,
+        max: skillValues.some(val => val > 99) ? 126 : 99, // Handle virtual levels
+        grid: {
+          color: "rgba(80, 80, 80, 0.5)"
+        },
+        ticks: {
+          stepSize: 9
+        }
+      }
+    }
+  };
 
   return (
     <Bar data={data} options={options} />
