@@ -66,3 +66,11 @@ export async function getCharacter(username: string) : Promise<Character | null>
 
   return new Character(username, history, levels);
 }
+
+// Returns a list of characters based on the JSON filenames
+export async function getCharacterList() : Promise<string[]> {
+  const files = await fs.readdir("vendor");
+
+  // Remove the file extension and sort the result
+  return files.map((filename) => filename.replace(/\.json$/, "")).sort();
+}
