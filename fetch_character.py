@@ -17,7 +17,7 @@ for i, character in enumerate(characters):
 # Have the user select a character from the list
 character = None
 while character == None:
-    index = 97 - ord(input())
+    index = ord(input()) - 97
 
     if index < 0 or index > len(characters) - 1:
         print('Invalid input.')
@@ -49,8 +49,12 @@ for filename in os.listdir(screenshot_path):
 # Sort by date
 levels = sorted(levels, key=lambda level: level['datetime'])
 
-# Write the output to a file as JSON
+# Write to the vendor directory if the script is run within the Next project
 output_directory = 'vendor' if os.path.isdir('vendor') else '.'
 
-with open(f'{output_directory}/{character}.json', 'w') as output:
+# Format filename for league characters
+output_filename = re.sub('-', ' - ', character)
+
+# Write the output to a file as JSON
+with open(f'{output_directory}/{output_filename}.json', 'w') as output:
     json.dump(levels, output, indent=2)
