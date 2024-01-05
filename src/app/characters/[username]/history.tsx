@@ -65,7 +65,7 @@ export default function CharacterHistory( { defaultSkills, history } : Character
 
   function togglePlay() {
     // If we hit play at the end of the animation, start from the beginning
-    if (!isPlaying && step == history.length - 1) {
+    if (!isPlaying && step == history.length) {
       setSkills({...defaultSkills});
       setStep(0);
     }
