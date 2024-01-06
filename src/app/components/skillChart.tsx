@@ -80,9 +80,6 @@ export default function SkillChart({ skills, title } : LevelChartParams) {
         max: skillValues.some(val => val > 99) ? 126 : 99, // Handle virtual levels
         grid: {
           color: "rgba(80, 80, 80, 0.5)"
-        },
-        ticks: {
-          stepSize: 9
         }
       }
     }
