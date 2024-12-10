@@ -7028,5 +7028,325 @@
     "skill": "Mining",
     "level": 75,
     "datetime": "2024-01-04T15:43:42"
+  },
+  {
+    "skill": "Hunter",
+    "level": 72,
+    "datetime": "2024-01-04T21:05:41"
+  },
+  {
+    "skill": "Cooking",
+    "level": 82,
+    "datetime": "2024-01-05T14:03:45"
+  },
+  {
+    "skill": "Herblore",
+    "level": 78,
+    "datetime": "2024-01-05T16:30:36"
+  },
+  {
+    "skill": "Magic",
+    "level": 88,
+    "datetime": "2024-01-08T20:02:57"
+  },
+  {
+    "skill": "Defence",
+    "level": 82,
+    "datetime": "2024-01-09T12:53:57"
+  },
+  {
+    "skill": "Fishing",
+    "level": 78,
+    "datetime": "2024-01-09T18:21:10"
+  },
+  {
+    "skill": "Ranged",
+    "level": 84,
+    "datetime": "2024-01-09T19:13:50"
+  },
+  {
+    "skill": "Cooking",
+    "level": 83,
+    "datetime": "2024-01-10T15:43:34"
+  },
+  {
+    "skill": "Crafting",
+    "level": 79,
+    "datetime": "2024-01-12T14:48:19"
+  },
+  {
+    "skill": "Crafting",
+    "level": 80,
+    "datetime": "2024-01-15T13:02:41"
+  },
+  {
+    "skill": "Crafting",
+    "level": 81,
+    "datetime": "2024-01-16T13:01:07"
+  },
+  {
+    "skill": "Magic",
+    "level": 89,
+    "datetime": "2024-01-17T09:40:10"
+  },
+  {
+    "skill": "Mining",
+    "level": 76,
+    "datetime": "2024-01-19T00:13:05"
+  },
+  {
+    "skill": "Crafting",
+    "level": 82,
+    "datetime": "2024-01-22T12:30:55"
+  },
+  {
+    "skill": "Crafting",
+    "level": 83,
+    "datetime": "2024-01-23T12:51:01"
+  },
+  {
+    "skill": "Herblore",
+    "level": 79,
+    "datetime": "2024-01-24T19:30:23"
+  },
+  {
+    "skill": "Fishing",
+    "level": 79,
+    "datetime": "2024-01-26T10:38:27"
+  },
+  {
+    "skill": "Prayer",
+    "level": 79,
+    "datetime": "2024-02-01T15:54:46"
+  },
+  {
+    "skill": "Cooking",
+    "level": 84,
+    "datetime": "2024-02-02T21:17:30"
+  },
+  {
+    "skill": "Farming",
+    "level": 91,
+    "datetime": "2024-02-04T11:11:26"
+  },
+  {
+    "skill": "Construction",
+    "level": 78,
+    "datetime": "2024-02-04T22:31:37"
+  },
+  {
+    "skill": "Thieving",
+    "level": 78,
+    "datetime": "2024-02-04T23:37:23"
+  },
+  {
+    "skill": "Herblore",
+    "level": 80,
+    "datetime": "2024-02-05T20:23:23"
+  },
+  {
+    "skill": "Thieving",
+    "level": 79,
+    "datetime": "2024-02-05T21:23:04"
+  },
+  {
+    "skill": "Thieving",
+    "level": 80,
+    "datetime": "2024-02-06T10:22:30"
+  },
+  {
+    "skill": "Thieving",
+    "level": 81,
+    "datetime": "2024-02-06T21:36:25"
+  },
+  {
+    "skill": "Thieving",
+    "level": 82,
+    "datetime": "2024-02-07T11:09:20"
+  },
+  {
+    "skill": "Thieving",
+    "level": 83,
+    "datetime": "2024-02-07T17:53:32"
+  },
+  {
+    "skill": "Thieving",
+    "level": 84,
+    "datetime": "2024-02-07T20:15:25"
+  },
+  {
+    "skill": "Thieving",
+    "level": 85,
+    "datetime": "2024-02-07T23:14:39"
+  },
+  {
+    "skill": "Thieving",
+    "level": 86,
+    "datetime": "2024-02-08T20:18:49"
+  },
+  {
+    "skill": "Thieving",
+    "level": 87,
+    "datetime": "2024-02-09T13:25:09"
+  },
+  {
+    "skill": "Hunter",
+    "level": 73,
+    "datetime": "2024-03-30T10:00:42"
+  },
+  {
+    "skill": "Hunter",
+    "level": 74,
+    "datetime": "2024-03-30T14:57:53"
+  },
+  {
+    "skill": "Ranged",
+    "level": 87,
+    "datetime": "2024-03-31T01:19:23"
+  },
+  {
+    "skill": "Crafting",
+    "level": 84,
+    "datetime": "2024-04-03T18:00:00"
+  },
+  {
+    "skill": "Slayer",
+    "level": 85,
+    "datetime": "2024-04-04T17:27:59"
+  },
+  {
+    "skill": "Crafting",
+    "level": 85,
+    "datetime": "2024-04-05T09:49:41"
+  },
+  {
+    "skill": "Fishing",
+    "level": 80,
+    "datetime": "2024-04-08T12:02:51"
+  },
+  {
+    "skill": "Construction",
+    "level": 80,
+    "datetime": "2024-04-09T20:04:11"
+  },
+  {
+    "skill": "Hunter",
+    "level": 75,
+    "datetime": "2024-04-10T09:50:14"
+  },
+  {
+    "skill": "Hunter",
+    "level": 76,
+    "datetime": "2024-04-11T10:33:44"
+  },
+  {
+    "skill": "Hunter",
+    "level": 77,
+    "datetime": "2024-04-12T22:58:03"
+  },
+  {
+    "skill": "Woodcutting",
+    "level": 83,
+    "datetime": "2024-04-17T09:57:21"
+  },
+  {
+    "skill": "Woodcutting",
+    "level": 84,
+    "datetime": "2024-04-19T10:55:46"
+  },
+  {
+    "skill": "Strength",
+    "level": 90,
+    "datetime": "2024-04-19T21:00:33"
+  },
+  {
+    "skill": "Woodcutting",
+    "level": 85,
+    "datetime": "2024-04-22T17:57:01"
+  },
+  {
+    "skill": "Mining",
+    "level": 77,
+    "datetime": "2024-04-26T09:52:13"
+  },
+  {
+    "skill": "Crafting",
+    "level": 86,
+    "datetime": "2024-05-01T23:59:13"
+  },
+  {
+    "skill": "Farming",
+    "level": 92,
+    "datetime": "2024-05-02T11:00:08"
+  },
+  {
+    "skill": "Herblore",
+    "level": 81,
+    "datetime": "2024-05-03T08:49:50"
+  },
+  {
+    "skill": "Crafting",
+    "level": 87,
+    "datetime": "2024-05-03T19:40:41"
+  },
+  {
+    "skill": "Attack",
+    "level": 83,
+    "datetime": "2024-05-03T21:48:27"
+  },
+  {
+    "skill": "Herblore",
+    "level": 82,
+    "datetime": "2024-05-04T01:06:48"
+  },
+  {
+    "skill": "Cooking",
+    "level": 85,
+    "datetime": "2024-05-07T16:17:32"
+  },
+  {
+    "skill": "Agility",
+    "level": 78,
+    "datetime": "2024-05-15T10:11:41"
+  },
+  {
+    "skill": "Slayer",
+    "level": 86,
+    "datetime": "2024-05-16T14:28:49"
+  },
+  {
+    "skill": "Mining",
+    "level": 78,
+    "datetime": "2024-05-17T10:15:51"
+  },
+  {
+    "skill": "Defence",
+    "level": 86,
+    "datetime": "2024-05-21T23:07:55"
+  },
+  {
+    "skill": "Runecraft",
+    "level": 73,
+    "datetime": "2024-05-26T22:41:36"
+  },
+  {
+    "skill": "Ranged",
+    "level": 89,
+    "datetime": "2024-05-31T20:09:50"
+  },
+  {
+    "skill": "Magic",
+    "level": 91,
+    "datetime": "2024-05-31T21:06:35"
+  },
+  {
+    "skill": "Attack",
+    "level": 84,
+    "datetime": "2024-05-31T21:49:34"
+  },
+  {
+    "skill": "Hitpoints",
+    "level": 94,
+    "datetime": "2024-06-09T00:38:58"
   }
 ]
